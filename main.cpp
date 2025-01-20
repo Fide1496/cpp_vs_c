@@ -2,10 +2,6 @@
 #include <string>
 using std::string;
 
-//#include <stdio.h>
-// #include "linked.h"
-//#include <string.h>
-// Will need to use a pointer to a pointer
 int main()
 {
 
