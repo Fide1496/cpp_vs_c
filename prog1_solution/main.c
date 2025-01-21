@@ -20,7 +20,7 @@ int main()
     }
 
 
-    printf("The BST ouput in postorder is \n")
+    printf("The BST ouput in postorder is \n");
 
     return 0;
 
