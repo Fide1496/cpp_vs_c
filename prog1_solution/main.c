@@ -5,7 +5,7 @@
 
 int main()
 {
-    Node *root = NULL;
+    struct BST *bst = NULL;
     char word [50];
 
     printf("Please enter a series of words to store in a BST\n");
@@ -26,7 +26,7 @@ int main()
     postOrder(root, stdout);
     printf("\n"); 
 
-    dealloc(&root)
+    free(bst);
 
     return 0;
 

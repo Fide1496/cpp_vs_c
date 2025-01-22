@@ -9,30 +9,13 @@ struct BST *makeBST(){
     return bst;
 }
 
-bool insert(Node **node, const char *value){
-    if(*node == NULL){
-        *node = (Node *)malloc(sizeof(Node));
-        if (*node == NULL) {
-            perror("Failed to allocate memory for Node");
-            exit(EXIT_FAILURE);
-        }
-        (*node)->value = strdup(value);
-        if ((*node)->value == NULL) {
-            perror("Failed to allocate memory for value");
-            free(*node);
-            exit(EXIT_FAILURE);
-        }
-        (*node)->left = NULL;
-        (*node)->right = NULL;
-        return true;
+int insert(Struct BST *bst, struct Node *node, char *value)
+{
+    bst->root = node;
+    if (node==NULL){
+        struct Node *node = 
+        
     }
-    if (strcmp(value, (*node)->value) < 0) {
-        return insert(&(*node)->left, value);
-    }
-    if (strcmp(value, (*node)->value) > 0) {
-        return insert(&(*node)->right, value);
-    }
-    return false;
 }
 
 bool search(Node *node, const char *value){

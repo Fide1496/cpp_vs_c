@@ -16,8 +16,8 @@ struct BST
      
 };
 
-struct Node *createNode();
-struct BST *createBST();
+struct Node *makeNode();
+struct BST *makeBST();
 void destroyBST(BST *tree);
 
 int insertNode(struct Node **node, const char value);
@@ -28,11 +28,11 @@ void postOrderTraversal(struct Node *node, FILE *output);
 void deallocNodes(struct Node **node);
 void copyTree(struct Node *source, BST *dest);
 
-int insert(struct BST *tree, const char value);
-int search(struct BST *tree, const char *value);
-int remove(struct BST *tree, const char *value);
+int insert(struct BST *bst, const char value);
+int search(struct BST *bst, const char *value);
+int remove(struct BST *bst, const char *value);
 
-void postOrder(struct BST *tree, FILE, *output);
-void copyBST(struct BST *source, BST *dest);
+void postOrder(struct BST *bst, FILE, *output);
+void copyBST(struct BST *bstCopy, BST *dest);
 
 #endif
