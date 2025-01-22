@@ -37,7 +37,8 @@ void deallocNodes(struct Node **node);
 
 void destroyBST(struct BST *tree);
 
-void postOrder(struct BST *bst, FILE *output);
+void postOrderNode(struct Node **node, const char *value);
+void postOrderBST(struct BST *bst, const char *value);
 void copyBST(struct BST *bstCopy, struct BST *dest);
 
 #endif

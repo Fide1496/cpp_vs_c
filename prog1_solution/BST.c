@@ -86,28 +86,28 @@ int removeBST(struct BST *bst, const char *value){
 }
 
 // FINISH
-void postOrder(struct Node *node, FILE *output){
+void postOrderNode(struct Node *node, FILE *output){
     if( *node==NULL) return;
-    postOrderBST(*node->left)
-    postOrderBST(*node->right)
+    postOrderNode(*node->left)
+    postOrderNode(*node->right)
 
 }
-void postOrderBST(struct Node *node){
-    
+void postOrderBST(struct BST *bst, const char *value){
+    if(bst == NULL) return 0;
+    return postOrder(&(bst->root),value);
 }
 
 void deallocNodes(struct Node **node){
     if(node == NULL) return;
     deallocNodes(node->left);
     deallocNodes(node->right);
-    calloc node;
+    free(node);
     node == NULL
 }
 
-
-void copy(struct Node *node, struct BST *bstCpy){
+void copy(struct Node *, struct BST *bstCpy){
     if (node == NULL) return;
     bstCpy = insertBST(node->value);
-    copy(*node->left, bstCpy);
-    copy(*node->right, bstCpy);
+    copy(node->left, bstCpy);
+    copy(node->right, bstCpy);
 }

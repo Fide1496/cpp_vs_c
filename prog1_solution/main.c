@@ -6,7 +6,7 @@
 int main()
 {
     struct BST *bst = NULL;
-    char word [50];
+    char value[50];
 
     printf("Please enter a series of words to store in a BST\n");
     printf("Type 'STOP' to end the series and output the BST\n");
@@ -15,11 +15,11 @@ int main()
     while (1)
     {
         printf("Word = ");
-        scanf("%d", word);
+        scanf("%s", value);
 
-        if (strcmp(word, "STOP\n") == 0) break;
+        if (strcmp(value, "STOP\n") == 0) break;
 
-        insert(bst->root, word);
+        insertR(bst->root, value);
     }
 
     printf("The BST output in postorder is: \n");
