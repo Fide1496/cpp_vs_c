@@ -1,32 +1,45 @@
 #include <stdio.h>
-#include "BST.h"
+#include <unistd.h>
 #include <string.h>
 #include <stdlib.h>
+#include <malloc.h>
+#include "BST.h"
+
+#define BUF_SIZE 1024
+int outCstring( const char * str);
 
 int main()
 {
-    struct BST *bst = NULL;
-    char value[50];
 
+    char word[BUF_SIZE];
+    struct BST *store = makeBST();
+
+    if(store == NULL){
+        outCstring("Failed to make BST\n");
+        return -1;
+    }
+
+    
     printf("Please enter a series of words to store in a BST\n");
     printf("Type 'STOP' to end the series and output the BST\n");
     printf("In postorder\n");
 
+
     while (1)
     {
         printf("Word = ");
-        scanf("%s", value);
 
-        if (strcmp(value, "STOP\n") == 0) break;
+        scanf("%s", word);
+        if (strcmp(word, "STOP") == 0) break;
 
-        insertR(bst->root, value);
+        insertBST(store, word);
     }
 
     printf("The BST output in postorder is: \n");
-    postOrder(bst->root, stdout);
+    postOrderBST(store, stdout);
     printf("\n"); 
 
-    free(bst);
+    destroyBST(store);
 
     return 0;
 
