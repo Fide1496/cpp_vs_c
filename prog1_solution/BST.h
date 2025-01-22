@@ -1,38 +1,43 @@
 #ifndef BST_H
 #define BST_H
-
+#include <string.h>
+#include <stdio.h>
+#include <string.h>
 #include <malloc.h>
 
 struct Node
 {
-    char value;
+    char value[50];
     struct Node *left;
     struct Node *right;
 };
 
+struct Node *makeNode(const char *value);
+
 struct BST
 {
     struct Node *root;
-     
 };
-
-struct Node *makeNode();
 struct BST *makeBST();
-void destroyBST(BST *tree);
 
-int insertNode(struct Node **node, const char value);
-int searchNode(struct Node *node, const char *value);
-int removeNode(struct Node **node, const char *value);
 
-void postOrderTraversal(struct Node *node, FILE *output);
+// These two inserts done in class
+int insertR(struct Node **node, const char value);
+int insertBST(struct BST *bst, const char *value);
+
+int searchR(struct Node *node, const char *value);
+int searchBST(struct BST *bst, const char *value);
+
+int removeR(struct Node **node, const char *value);
+int removeBST(struct BST *bst, const char *value);
+
 void deallocNodes(struct Node **node);
-void copyTree(struct Node *source, BST *dest);
 
-int insert(struct BST *bst, const char value);
-int search(struct BST *bst, const char *value);
-int remove(struct BST *bst, const char *value);
+// int insertBST(struct BST *bst, struct Node *node, const char value);
 
-void postOrder(struct BST *bst, FILE, *output);
-void copyBST(struct BST *bstCopy, BST *dest);
+void destroyBST(struct BST *tree);
+
+void postOrder(struct BST *bst, FILE *output);
+void copyBST(struct BST *bstCopy, struct BST *dest);
 
 #endif

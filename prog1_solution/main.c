@@ -17,13 +17,13 @@ int main()
         printf("Word = ");
         scanf("%d", word);
 
-        if (strcmp(word, "STOP",4) == 0) break;
+        if (strcmp(word, "STOP\n") == 0) break;
 
-        insert(&root, word);
+        insert(bst->root, word);
     }
 
     printf("The BST output in postorder is: \n");
-    postOrder(root, stdout);
+    postOrder(bst->root, stdout);
     printf("\n"); 
 
     free(bst);
