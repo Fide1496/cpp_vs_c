@@ -5,7 +5,6 @@
 #include "BST.h"
 
 #define BUF_SIZE 1024
-// int outCstring( const char * str);
 
 int main()
 {

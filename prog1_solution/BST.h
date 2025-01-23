@@ -20,7 +20,6 @@ struct BST
 struct BST *makeBST();
 
 
-// These two inserts done in class
 int insertR(struct Node **node, const char *value);
 int insertBST(struct BST *bst, const char *value);
 
@@ -31,9 +30,6 @@ int removeR(struct Node **node, const char *value);
 int removeBST(struct BST *bst, const char *value);
 
 void deallocNodes(struct Node *node);
-
-// int insertBST(struct BST *bst, struct Node *node, const char value);
-
 void destroyBST(struct BST *tree);
 
 void postOrderNode(struct Node *node, FILE *output);
