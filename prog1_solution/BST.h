@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+// Node structure and constructor
 struct Node
 {
     char *value;
@@ -13,13 +14,14 @@ struct Node
 
 struct Node *makeNode(const char *value);
 
+// BST struct and constructor
 struct BST
 {
     struct Node *root;
 };
 struct BST *makeBST();
 
-
+// Function headers
 int insertR(struct Node **node, const char *value);
 int insertBST(struct BST *bst, const char *value);
 
