@@ -63,22 +63,22 @@ int insertBST(struct BST *bst, const char *value)
 }
 
 
-int searchR(struct Node *node, const char *value){
+int searchR(struct Node **node, const char *value){
 
     if(node == NULL){
         return false;
     }
     if(strcmp(value,(*node)->value)<0){
-        return searchR(&((node)->left),value);
+        return searchR(&((*node)->left),value);
     }
     if(strcmp(value,(*node)->value)>0){
-        return searchR(&((node)->right),value);
+        return searchR(&((*node)->right),value);
     }
     return 1;
 }
 
 int searchBST(struct BST *bst, const char *value){
-    if (*bst->root == NULL) return 0;
+    if (bst->root == NULL) return 0;
     return searchR(&(bst->root),value);
 };
 
@@ -112,23 +112,25 @@ void deallocNodes(struct Node *node) {
     free(node);
 }
 
-void copy(struct Node *, struct BST *bstCpy){
+void copy(struct Node *node, struct BST *bstCpy){
     if (node == NULL) return;
-    bstCpy = insertR(node->value);
+    // bstCpy = insertR(node->value);
+    insertR(&(bstCpy->root), node->value);
+
     copy(node->left, bstCpy);
     copy(node->right, bstCpy);
 }
 
 
-// Destructor(s)
-void freeNodes(BST *bstNode){
-    if(bstNode == NULL) return;
+// // Destructor(s)
+// void freeNodes(struct BST *bstNode){
+//     if(bstNode == NULL) return;
 
-    freeNodes(node->left);
-    freeNodes(node->right);
+//     freeNodes(node->left);
+//     freeNodes(node->right);
 
-    free(bstNode;)
-}
+//     free(bstNode);
+// }
 
 void destroyBST(struct BST *bst) {
     if (bst == NULL) return;

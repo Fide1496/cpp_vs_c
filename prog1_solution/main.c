@@ -2,11 +2,10 @@
 #include <unistd.h>
 #include <string.h>
 #include <stdlib.h>
-#include <malloc.h>
 #include "BST.h"
 
 #define BUF_SIZE 1024
-int outCstring( const char * str);
+// int outCstring( const char * str);
 
 int main()
 {
@@ -15,7 +14,7 @@ int main()
     struct BST *store = makeBST();
 
     if(store == NULL){
-        outCstring("Failed to make BST\n");
+        printf("Failed to make BST\n");
         return -1;
     }
 
